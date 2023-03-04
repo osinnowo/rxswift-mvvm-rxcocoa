@@ -15,9 +15,9 @@ enum Environment: String {
     
     var plistName: String {
         switch self {
-        case .production: return "Production"
-        case .premise: return "Premise"
-        case .staging: return "Staging"
+            case .production: return "Production"
+            case .premise: return "Premise"
+            case .staging: return "Staging"
         }
     }
     
