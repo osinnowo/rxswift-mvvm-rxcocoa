@@ -23,6 +23,7 @@ final class UserService: UserServiceProtocol {
                    .initiate(
                         environment: .production,
                         method: .GET,
+                        path: .users,
                         request: nil
                    ) .map { $0 }
     }
