@@ -25,6 +25,9 @@
 		7EEE428F29B3802B0046D5F4 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE428E29B3802B0046D5F4 /* UserListViewModel.swift */; };
 		7EEE429229B380EC0046D5F4 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE429129B380EC0046D5F4 /* UserViewModel.swift */; };
 		7EEE429429B3A2590046D5F4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE429329B3A2590046D5F4 /* WebService.swift */; };
+		7EEE429629B3B4960046D5F4 /* Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE429529B3B4960046D5F4 /* Staging.plist */; };
+		7EEE429829B3B4A80046D5F4 /* Premise.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE429729B3B4A80046D5F4 /* Premise.plist */; };
+		7EEE429A29B3B4B50046D5F4 /* Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE429929B3B4B50046D5F4 /* Production.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		7EEE428E29B3802B0046D5F4 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		7EEE429129B380EC0046D5F4 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7EEE429329B3A2590046D5F4 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		7EEE429529B3B4960046D5F4 /* Staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Staging.plist; sourceTree = "<group>"; };
+		7EEE429729B3B4A80046D5F4 /* Premise.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Premise.plist; sourceTree = "<group>"; };
+		7EEE429929B3B4B50046D5F4 /* Production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Production.plist; sourceTree = "<group>"; };
 		ABE95AD1640A877FC6790C79 /* Pods-rxswift-mvvm-rxcocoaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rxswift-mvvm-rxcocoaTests.release.xcconfig"; path = "Target Support Files/Pods-rxswift-mvvm-rxcocoaTests/Pods-rxswift-mvvm-rxcocoaTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE00BCD3822B8751009E13B3 /* Pods-rxswift-mvvm-rxcocoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rxswift-mvvm-rxcocoa.release.xcconfig"; path = "Target Support Files/Pods-rxswift-mvvm-rxcocoa/Pods-rxswift-mvvm-rxcocoa.release.xcconfig"; sourceTree = "<group>"; };
 		D4C9BF9E442E7536842772B1 /* Pods-rxswift-mvvm-rxcocoa-rxswift-mvvm-rxcocoaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rxswift-mvvm-rxcocoa-rxswift-mvvm-rxcocoaUITests.release.xcconfig"; path = "Target Support Files/Pods-rxswift-mvvm-rxcocoa-rxswift-mvvm-rxcocoaUITests/Pods-rxswift-mvvm-rxcocoa-rxswift-mvvm-rxcocoaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +155,9 @@
 				7EEE425E29B377470046D5F4 /* LaunchScreen.storyboard */,
 				7EEE426129B377470046D5F4 /* Info.plist */,
 				7EEE425929B377460046D5F4 /* rxswift_mvvm_rxcocoa.xcdatamodeld */,
+				7EEE429529B3B4960046D5F4 /* Staging.plist */,
+				7EEE429729B3B4A80046D5F4 /* Premise.plist */,
+				7EEE429929B3B4B50046D5F4 /* Production.plist */,
 			);
 			path = "rxswift-mvvm-rxcocoa";
 			sourceTree = "<group>";
@@ -334,7 +343,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EEE429829B3B4A80046D5F4 /* Premise.plist in Resources */,
+				7EEE429A29B3B4B50046D5F4 /* Production.plist in Resources */,
 				7EEE426029B377470046D5F4 /* LaunchScreen.storyboard in Resources */,
+				7EEE429629B3B4960046D5F4 /* Staging.plist in Resources */,
 				7EEE425D29B377470046D5F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
