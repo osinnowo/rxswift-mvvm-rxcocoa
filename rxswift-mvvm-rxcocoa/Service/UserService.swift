@@ -18,30 +18,12 @@ protocol UserServiceProtocol: AnyObject {
 }
 
 final class UserService: UserServiceProtocol {
-    
     func fetchUsers() -> Observable<[User]> {
-        return Observable.create { observer -> Disposable in
-            
-            guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
-                observer.on(.error(UserServiceError.invalidUrl))
-                return Disposables.create ()
-            }
-            
-            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { [weak self] data, _, error in
-                guard let data = data, error == nil else { return }
-                do {
-                    let response = try JSONDecoder().decode([User].self, from: data)
-                    observer.onNext(response)
-                } catch {
-                    observer.onError(UserServiceError.unableToParseResponse)
-                }
-            }
-            
-            task.resume()
-            
-            return Disposables.create {
-                task.cancel()
-            }
-        }
+        return WebService<Empty, [User]>()
+                   .initiate(
+                        environment: .production,
+                        method: .GET,
+                        request: nil
+                   ) .map { $0 }
     }
 }
