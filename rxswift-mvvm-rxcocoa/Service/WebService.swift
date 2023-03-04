@@ -21,14 +21,14 @@ enum Environment: String {
         }
     }
     
-    func getUrl() -> URL? {
+    func getUrl(path: String) -> URL? {
         guard let plistPath = Bundle.main.path(forResource: plistName, ofType: "plist"),
               let plistData = try? Data(contentsOf: URL(fileURLWithPath: plistPath)),
               let plist = try? PropertyListSerialization.propertyList(from: plistData, options: [], format: nil),
               let url = (plist as? [String: Any])?["url"] as? String else {
             return nil
         }
-        return URL(string: url)
+        return URL(string: url + path)
     }
 }
 
@@ -46,11 +46,15 @@ enum WebServiceError: Error {
 
 struct Empty: Codable {}
 
+enum Endpoint: String {
+    case users = "/users"
+}
+
 protocol WebServiceProtocol {
     associatedtype T: Codable
     associatedtype R: Decodable
     
-    func initiate(environment: Environment, method: HttpMethod, request: T?) -> Observable<R>
+    func initiate(environment: Environment, method: HttpMethod, path: Endpoint, request: T?) -> Observable<R>
 }
 
 final class WebService<Request: Codable, Response: Decodable> : WebServiceProtocol {
@@ -60,12 +64,13 @@ final class WebService<Request: Codable, Response: Decodable> : WebServiceProtoc
     typealias R = Response
     
     func initiate(
-        environment: Environment,
+        environment: Environment = .staging,
         method: HttpMethod = .GET,
+        path: Endpoint,
         request: Request? = nil
     ) -> Observable<Response> {
         return Observable.create { observer in
-            var urlRequest = URLRequest(url: environment.getUrl()!)
+            var urlRequest = URLRequest(url: environment.getUrl(path: path.rawValue)!)
             urlRequest.httpMethod = method.rawValue
            
             if let requestBody = request {
