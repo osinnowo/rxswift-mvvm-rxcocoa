@@ -12,8 +12,23 @@ enum Environment: String {
     case production
     case premise
     case staging
-    func getUrl() -> URL {
-        return URL(string: "https://jsonplaceholder.typicode.com/users")!
+    
+    var plistName: String {
+        switch self {
+        case .production: return "Production"
+        case .premise: return "Premise"
+        case .staging: return "Staging"
+        }
+    }
+    
+    func getUrl() -> URL? {
+        guard let plistPath = Bundle.main.path(forResource: plistName, ofType: "plist"),
+              let plistData = try? Data(contentsOf: URL(fileURLWithPath: plistPath)),
+              let plist = try? PropertyListSerialization.propertyList(from: plistData, options: [], format: nil),
+              let url = (plist as? [String: Any])?["url"] as? String else {
+            return nil
+        }
+        return URL(string: url)
     }
 }
 
@@ -50,7 +65,7 @@ final class WebService<Request: Codable, Response: Decodable> : WebServiceProtoc
         request: Request? = nil
     ) -> Observable<Response> {
         return Observable.create { observer in
-            var urlRequest = URLRequest(url: environment.getUrl())
+            var urlRequest = URLRequest(url: environment.getUrl()!)
             urlRequest.httpMethod = method.rawValue
            
             if let requestBody = request {
